@@ -1,0 +1,2 @@
+### About the project
+The simple todo application written using React.js. This project is supposed to work in tandem with the line bot todo application that can be found here https://github.com/woraphol-j/line-bot-demo
