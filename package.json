@@ -1,0 +1,29 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "4.1.1",
+    "moment": "^2.22.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "bundle": "cd build && zip -r ../app-$(jq -r '.version' ../package.json).zip * && cd ..",
+    "publish": "npm run bundle && aws s3 cp ./app-$(jq -r '.version' ./package.json).zip s3://eb-deployment-api --profile mvp48",
+    "111postpublish": "rm ./app-$(jq -r '.version' ./package.json).zip"
+  }
+}
